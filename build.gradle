@@ -10,7 +10,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
-version = "0.4.1-1.12.2"
+version = "0.4.1-1.16.5"
 group = "com.mrcrayfish.cdm" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "device-mod"
 
@@ -20,13 +20,13 @@ compileJava {
 }
 
 minecraft {
-    version = "1.12.2-14.23.1.2594"
+    version = "1.16.5-36.1.0"
     runDir = "run"
-    mappings = "snapshot_20171003"
+    mappings = "snapshot_20210309"
 }
 
-def mc_version = "1.12.2"
-def jei_version = "4.9.1.179"
+def mc_version = "1.16.5"
+def jei_version = "7.7.1.110"
 
 repositories {
     maven {
