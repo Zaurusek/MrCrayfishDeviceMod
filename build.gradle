@@ -1,14 +1,15 @@
 buildscript {
     repositories {
-        jcenter()
-        maven { url = "http://files.minecraftforge.net/maven" }
+        maven { url = "https://maven.minecraftforge.net" }
+        mavenCentral()
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:4.1.+'
     }
 }
-apply plugin: 'net.minecraftforge.gradle.forge'
-//Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
+apply plugin: 'net.minecraftforge.gradle'
+
+// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 version = "0.4.1-1.16.5"
 group = "com.mrcrayfish.cdm" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
@@ -22,7 +23,7 @@ compileJava {
 minecraft {
     version = "1.16.5-36.1.0"
     runDir = "run"
-    mappings = "snapshot_20210309"
+    mappings = "snapshot_20210309-1.16.5"
 }
 
 def mc_version = "1.16.5"
@@ -32,20 +33,20 @@ repositories {
     maven {
         // location of the maven that hosts JEI files
         name = "Progwml6 maven"
-        url = "http://dvs1.progwml6.com/files/maven"
+        url = "https://dvs1.progwml6.com/files/maven"
     }
     maven {
         // location of a maven mirror for JEI files, as a fallback
         name = "ModMaven"
-        url = "modmaven.k-4u.nl"
+        url = "https://modmaven.k-4u.nl"
     }
 }
 
 dependencies {
     // compile against the JEI API but do not include it at runtime
-    deobfProvided "mezz.jei:jei_${mc_version}:${jei_version}:api"
+    compileOnly "mezz.jei:jei-${mc_version}:${jei_version}:api"
     // at runtime, use the full JEI jar
-    runtime "mezz.jei:jei_${mc_version}:${jei_version}"
+    runtimeOnly "mezz.jei:jei-${mc_version}:${jei_version}"
 }
 
 processResources {
